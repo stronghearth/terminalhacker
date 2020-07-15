@@ -5,7 +5,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hacker : MonoBehaviour
+   
 {
+    //Game config data
+    string[] level1Passwords = { "books", "aisle", "shelf", "password", "font", "borrow" };
+    string[] level2Passwords = { "prisoner", "handcuffs", "holster", "uniform", "arrest" };
+
     //Game State
     int level;
     string password;
@@ -47,13 +52,13 @@ public class Hacker : MonoBehaviour
         if (input == "1")
         {
             level = 1;
-            password = "books";
+            password = level1Passwords[1];
             StartGame(level, input);
         }
         else if (input == "2")
         {
             level = 2;
-            password = "prisoner";
+            password = level2Passwords[3];
             StartGame(level, input);
         }
         else if (input == "007")
