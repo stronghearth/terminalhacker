@@ -86,11 +86,36 @@ public class Hacker : MonoBehaviour
     {
         if (input == password)
         {
-            Terminal.WriteLine("Correct!");
+            DisplayWinScreen();
         }
         else
         {
             Terminal.WriteLine("Please try again.");
+        }
+    }
+
+    void DisplayWinScreen()
+    {
+        currentScreen = Screen.Win;
+        Terminal.ClearScreen();
+        ShowLevelReward();
+    }
+
+    void ShowLevelReward()
+    {
+        switch(level)
+        {
+            case 1:
+                Terminal.WriteLine("No more late fees for you!");
+                Terminal.WriteLine(@"[̲̅$̲̅(̲̅:D)̲̅$̲̅]");
+                break;
+            case 2:
+                Terminal.WriteLine("Parking ticket erased!");
+                Terminal.WriteLine(@"[PARKING VIO/ /LATION]");
+                break;
+            default:
+                Debug.LogError("Invalid level reached");
+                break;
         }
     }
 }
