@@ -1,8 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Hacker : MonoBehaviour
    
@@ -73,10 +69,12 @@ public class Hacker : MonoBehaviour
         switch (level)
         {
             case 1:
-                password = level1Passwords[0];
+                int randomPasswordOne = Random.Range(0, level1Passwords.Length);
+                password = level1Passwords[randomPasswordOne];
                 break;
             case 2:
-                password = level2Passwords[2];
+                int randomPasswordTwo = Random.Range(0, level2Passwords.Length);
+                password = level2Passwords[randomPasswordTwo];
                 break;
             default:
                 Debug.LogError("Invalid level number");
