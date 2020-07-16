@@ -6,7 +6,7 @@ public class Hacker : MonoBehaviour
     //Game config data
     string[] level1Passwords = { "books", "aisle", "shelf", "password", "font", "borrow" };
     string[] level2Passwords = { "verified", "tweet", "hashtag", "notifications", "mentions" };
-    string[] level3Passwords = { "operation", "international", "clandestine", "secrets", "international"};
+    string[] level3Passwords = { "operation", "international", "clandestine", "undercover", "classified"};
     const string menuMessage = "Type 'menu' to return to the main menu.";
 
     //Game State
@@ -53,7 +53,7 @@ public class Hacker : MonoBehaviour
 
     void RunMainMenu (string input)
     {
-        bool isValidLevelNumber = ( input == "1" || input == "2" || );
+        bool isValidLevelNumber = ( input == "1" || input == "2" || input == "3" );
         if (isValidLevelNumber)
         {
             level = int.Parse(input);
@@ -92,6 +92,10 @@ public class Hacker : MonoBehaviour
                 int randomPasswordTwo = Random.Range(0, level2Passwords.Length);
                 password = level2Passwords[randomPasswordTwo];
                 break;
+            case 3:
+                int randomPasswordThree = Random.Range(0, level3Passwords.Length);
+                password = level3Passwords[randomPasswordThree];
+                break;
             default:
                 Debug.LogError("Invalid level number");
                 break;
@@ -128,6 +132,10 @@ public class Hacker : MonoBehaviour
             case 2:
                 Terminal.WriteLine("Oh no, for some reason, verified users can't tweet! ;)");
                 Terminal.WriteLine(@"¯\_(ツ)_/¯");
+                break;
+            case 3:
+                Terminal.WriteLine("Success! You erased your entire history!");
+                Terminal.WriteLine(@"(-(-_(-_-)_-)-)");
                 break;
             default:
                 Debug.LogError("Invalid level reached");
