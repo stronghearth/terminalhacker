@@ -5,7 +5,7 @@ public class Hacker : MonoBehaviour
 {
     //Game config data
     string[] level1Passwords = { "books", "aisle", "shelf", "password", "font", "borrow" };
-    string[] level2Passwords = { "prisoner", "handcuffs", "holster", "uniform", "arrest" };
+    string[] level2Passwords = { "verified", "tweet", "hashtag", "like", "viral" };
 
     //Game State
     int level;
@@ -23,7 +23,7 @@ public class Hacker : MonoBehaviour
         Terminal.WriteLine("Good Day");
         Terminal.WriteLine("Where shall we venture today?");
         Terminal.WriteLine("Press 1 for the local library");
-        Terminal.WriteLine("Press 2 for police radio");
+        Terminal.WriteLine("Press 2 for Twitter");
         Terminal.WriteLine("Enter your selection:");
     }
 
@@ -110,8 +110,8 @@ public class Hacker : MonoBehaviour
                 Terminal.WriteLine(@"[̲̅$̲̅(̲̅:D)̲̅$̲̅]");
                 break;
             case 2:
-                Terminal.WriteLine("Parking ticket erased!");
-                Terminal.WriteLine(@"[PARKING VIO/ /LATION]");
+                Terminal.WriteLine("Oh no, for some reason verified users can't tweet! ;)");
+                Terminal.WriteLine(@"¯\_(ツ)_/¯");
                 break;
             default:
                 Debug.LogError("Invalid level reached");
