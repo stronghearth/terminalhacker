@@ -5,7 +5,7 @@ public class Hacker : MonoBehaviour
 {
     //Game config data
     string[] level1Passwords = { "books", "aisle", "shelf", "password", "font", "borrow" };
-    string[] level2Passwords = { "verified", "tweet", "hashtag", "like", "viral" };
+    string[] level2Passwords = { "verified", "tweet", "hashtag", "notifications", "mentions" };
 
     //Game State
     int level;
@@ -49,7 +49,7 @@ public class Hacker : MonoBehaviour
         if (isValidLevelNumber)
         {
             level = int.Parse(input);
-            StartGame(level, input);
+            AskForPassword(level, input);
         }
         else if (input == "007")
         {
@@ -61,11 +61,16 @@ public class Hacker : MonoBehaviour
         }
     }
 
-    void StartGame(int level, string input)
+    void AskForPassword(int level, string input)
     {
         currentScreen = Screen.Password;
         Terminal.ClearScreen();
-        Terminal.WriteLine("Please enter your password: ");
+        SetRandomPassword(level);
+        Terminal.WriteLine("Enter your password, hint: " + password.Anagram());
+    }
+
+    void SetRandomPassword(int level)
+    {
         switch (level)
         {
             case 1:
@@ -82,7 +87,7 @@ public class Hacker : MonoBehaviour
         }
     }
 
-    void CheckPassword(string input)
+    void CheckPassword(int level, string input)
     {
         if (input == password)
         {
@@ -90,7 +95,7 @@ public class Hacker : MonoBehaviour
         }
         else
         {
-            Terminal.WriteLine("Please try again.");
+            AskForPassword(level, input);
         }
     }
 
@@ -110,7 +115,7 @@ public class Hacker : MonoBehaviour
                 Terminal.WriteLine(@"[̲̅$̲̅(̲̅:D)̲̅$̲̅]");
                 break;
             case 2:
-                Terminal.WriteLine("Oh no, for some reason verified users can't tweet! ;)");
+                Terminal.WriteLine("Oh no, for some reason, verified users can't tweet! ;)");
                 Terminal.WriteLine(@"¯\_(ツ)_/¯");
                 break;
             default:
